@@ -25,7 +25,7 @@ setup(
     long_description_content_type='text/markdown',
     keywords = "kinematics robotics dynamics",
     url = "http://modernrobotics.org/",
-    packages=['modern_robotics'],
+    packages=['modern_robotics', 'exercises'],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Education",
