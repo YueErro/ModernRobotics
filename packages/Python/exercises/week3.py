@@ -21,50 +21,50 @@ wskew = np.array([1, 2, 0.5]).T
 
 print("Ex1, Rsa:")
 Rsa = mr.RotInv(Ras)
-print(Rsa, "\n")
+print(Rsa)
 # [[0,1,0],[0,0,1],[1,0,0]]
 
 print("Ex2, Inverse of Rsb:")
-print(Rbs, "\n")
+print(Rbs)
 # [[1,0,0],[0,0,-1],[0,1,0]]
 
 print("Ex3, Rab:")
 Rab = mr.RotInv(np.dot(Rbs, Rsa))
-print(Rab, "\n")
+print(Rab)
 # [[0,-1,0],[1,0,0],[0,0,1]]
 
 print("Ex5, pb:")
 Rsb = mr.RotInv(Rbs)
 pb = Rsb * pb
-print(pb, "\n")
+print(pb)
 # [1,3,-2]
 
 print("Ex7, wa:")
 wa = Rsa * ws
-print(wa, "\n")
+print(wa)
 # [1,3,2]
 
 print("Ex8, theta:")
 MatLogRsa = mr.MatrixLog3(Rsa)
 vec = mr.so3ToVec(MatLogRsa)
 theta = mr.AxisAng3(vec)[-1]
-print(theta, "\n")
+print(theta)
 # 2.094395102393196
 
 print("Ex9, Matrix exponential:")
 skew = mr.VecToso3(wtheta)
 MatExp = mr.MatrixExp3(skew)
-print(MatExp, "\n")
+print(MatExp)
 # [[-0.2938183,0.64690915,0.70368982],[0.64690915,0.67654542,-0.35184491],[-0.70368982,0.35184491,-0.61727288]]
 
 print("Ex10, skew.symmetric matrix:")
 skewMat = mr.VecToso3(wskew)
-print(skewMat, "\n")
+print(skewMat)
 # [[0,-0.5,2],[0.5,0,-1],[-2,1,0]]
 
 print("Ex11, Rotation matrix:")
 RotMat = mr.MatrixExp3(so3)
-print(RotMat, "\n")
+print(RotMat)
 # [[0.60482045,0.796274,-0.01182979],[0.46830057,-0.34361048,0.81401868],[0.64411707,-0.49787504,-0.58071821]]
 
 print("Ex12, Matrix logarithm")

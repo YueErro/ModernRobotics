@@ -36,19 +36,19 @@ v = np.array([1, 0, 0, 0, 2, 3]).T
 
 print("Ex1, Tsa:")
 Tsa = mr.RpToTrans(Rsa, pVa)
-print(Tsa, "\n")
+print(Tsa)
 # [[0,-1,0,0],[0,0,-1,0],[1,0,0,1],[0,0,0,1]]
 
 print("Ex2, Inverse of Tsb:")
 Tsb = mr.RpToTrans(Rsb, pVb)
 Tbs = mr.TransInv(Tsb)
-print(Tbs, "\n")
+print(Tbs)
 # [[1,0,0,0],[0,0,-1,0],[0,1,0,-2],[0,0,0,1]]
 
 print("Ex3, Tab:")
 Tas = mr.TransInv(Tsa)
 Tab = np.dot(Tas, Tsb)
-print(Tab, "\n")
+print(Tab)
 # [[0,-1,0,-1],[-1,0,0,0],[0,0,-1,-2],[0,0,0,1]]
 
 print("Ex5, pb:")
@@ -56,53 +56,53 @@ pb = np.append(pb, 1)
 Tsb = mr.TransInv(Tbs)
 pb = np.dot(Tsb, pb)
 pb = np.delete(pb, 3)
-print(pb, "\n")
+print(pb)
 # [1,5,-2]
 
 print("Ex7, va:")
 Tsa = mr.Adjoint(Tas)
 va = np.dot(Tsa, vs)
-print(va, "\n")
+print(va)
 # [1,-3,-2,-3,-1,5]
 
 print("Ex8, theta:")
 MatLogTsa = mr.MatrixLog6(Tsa)
 vec = mr.so3ToVec(MatLogTsa)
 theta = mr.AxisAng6(vec)[-1]
-print(theta, "\n")
+print(theta)
 # 2.094395102393196
 
 print("Ex9, Matrix exponential:")
 se3 = mr.VecTose3(stheta)
 MatExp = mr.MatrixExp6(se3)
-print(MatExp, "\n")
+print(MatExp)
 # [[-0.61727288,-0.70368982,0.35184491,1.05553472],[0.70368982,-0.2938183,0.64690915,1.94072745],[-0.35184491,0.64690915,0.67654542,-0.97036373],[0,0,0,1]]
 
 print("Ex10, fb:")
 Tbs = mr.Adjoint(Tbs)
 Tsb = np.transpose(Tbs)
 fb = np.dot(Tsb, fb)
-print(fb, "\n")
+print(fb)
 # [-1,0,-4,2,0,-1]
 
 print("Ex11, TransInv:")
 Tinv = mr.TransInv(T)
-print(Tinv, "\n")
+print(Tinv)
 # [[0,1,0,0],[-1,0,0,3],[0,0,1,-1],[0,0,0,1]]
 
 print("Ex12, VecTose3:")
 se3 = mr.VecTose3(v)
-print(se3, "\n")
+print(se3)
 # [[0,0,0,0],[0,0,-1,2],[0,1,0,3],[0,0,0,0]]
 
 print("Ex13, ScrewToAxis:")
 screw = mr.ScrewToAxis(p, shat, h)
-print(screw, "\n")
+print(screw)
 # [1,0,0,1,2,0]
 
 print("Ex14, MatrixExp6:")
 TransMat = mr.MatrixExp6(sbracketstheta)
-print(TransMat, "\n")
+print(TransMat)
 # [[0,-1,0,3],[1,0,0,0],[0,0,1,1],[0,0,0,1]]
 
 print("Ex15, MatrixLog6:")
